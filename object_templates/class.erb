@@ -163,12 +163,12 @@ class <%= name %> (
             options_hash  => $options_all,
             settings_hash => $settings_hash,
           },
-          'tp::dir => {
+          'tp::dir' => {
             ensure        => $dir_ensure,
             settings_hash => $settings_hash,
           },
           'exec' => {
-            path = $::path,
+            path => $::path,
           },
           'file' => {
             ensure        => $file_ensure,
