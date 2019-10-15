@@ -158,22 +158,25 @@ class <%= name %> (
       }
       $resources_all.each |String $resource_name, Hash $resource_params| {
         $resources_params_default = $resource_type ? {
-          'tp::conf' = {
+          'tp::conf' => {
             ensure        => $file_ensure,
             options_hash  => $options_all,
             settings_hash => $settings_hash,
           },
-          'tp::dir = {
+          'tp::dir => {
             ensure        => $dir_ensure,
             settings_hash => $settings_hash,
           },
-          'exec' = {
+          'exec' => {
             path = $::path,
           },
-          'file' = {
+          'file' => {
             ensure        => $file_ensure,
           },
-          default = {},
+          'package' => {
+            ensure        => $file_ensure,
+          },
+          default => {},
         }
         $resource_params_all = deep_merge($resources_defaults[$resource_type], $resources_params_default, $resource_params)
         ensure_resource($resource_type,$resource_name,$resource_params_all)
