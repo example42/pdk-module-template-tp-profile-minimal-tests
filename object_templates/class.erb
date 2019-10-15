@@ -150,7 +150,7 @@ class <%= name %> (
     }
 
     # Declaration of tp_profile::<%= app_name %>::resources
-    $resources=lookup('tp_profile::<%= app_name %>::resources, Hash, $resources_lookup_method, {})
+    $resources=lookup('tp_profile::<%= app_name %>::resources', Hash, $resources_lookup_method, {})
     $resources.each |String $resource_type, Hash $content| {
       $resources_all = $auto_conf ? {
         true  => pick($resources_auto_conf_hash[$resource_type], {}) + pick($resources[$resource_type], {}),
