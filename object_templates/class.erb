@@ -118,7 +118,9 @@ class <%= name %> (
   Hash               $options_auto_conf_hash   = {},
 
   Boolean            $auto_prereq              = true,
-  Boolean            $no_noop                  = false,
+
+  Boolean            $noop_manage              = false,
+  Boolean            $noop_value               = false,
   <%- if params -%>
 <%-   params.each do |param| -%>
   <%= param[:type].ljust(max_type_length) %> $<%= param[:name] %>,
